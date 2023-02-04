@@ -1,0 +1,140 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal__content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 50rem;
+  max-height: 40rem;
+  background-color: var(--white);
+
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.modal__title {
+  font-size: 2.4rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.modal__close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+
+  &:before,
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 0.3rem;
+
+    border-radius: 0.3rem;
+    background-color: var(--black);
+
+    transition: all 0.3s ease-in-out;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      background-color: var(--gold);
+
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      background-color: var(--gold);
+
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5rem;
+  font-size: 1.8rem;
+}
+
+.form__button {
+  padding: 2rem;
+}
+
+.form__name,
+.form__email {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  padding: 0.7rem;
+  border-bottom: 0.1rem solid var(--black);
+  outline: none;
+
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    box-shadow: 0.5rem 0.5rem 0rem var(--black);
+  }
+}
+
+._error {
+  box-shadow: 0.5rem 0.5rem 0rem red;
+}
